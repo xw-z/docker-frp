@@ -16,10 +16,10 @@ RUN set -x \
 && apt autoremove -y \
 && rm -rf /var/lib/apt/lists/*
 
-COPY conf/frps.ini /frps.ini
-
 VOLUME /frps.ini
 VOLUME /frpc.ini
+
+COPY conf/frps.ini /frps.ini
 
 WORKDIR /
 ENTRYPOINT /frps -c /frps.ini

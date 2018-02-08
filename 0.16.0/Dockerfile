@@ -21,3 +21,6 @@ COPY frps.ini /frp/frps.ini
 
 WORKDIR /frp
 ENTRYPOINT /frp/frps -c /frp/frps.ini
+
+EXPOSE 7000 7500 80 433
+EXPOSE 7001 7002 7003 7004 7005 7006 7007 7008 7009 7010

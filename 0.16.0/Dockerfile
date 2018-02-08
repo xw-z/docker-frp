@@ -11,15 +11,15 @@ WORKDIR /tmp
 RUN set -x \
 && wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_amd64.tar.gz \
 && tar -zxf frp_${FRP_VERSION}_linux_amd64.tar.gz \
-&& mv frp_${FRP_VERSION}_linux_amd64 /frp \
-&& mkdir -p /frp \
+&& mv frp_${FRP_VERSION}_linux_amd64 / \
 && apt remove -y wget \
 && apt autoremove -y \
 && rm -rf /var/lib/apt/lists/*
 
-COPY conf/frps.ini /frp/conf/frps.ini
+COPY conf/frps.ini /frps.ini
 
-VOLUME /frp/conf
+VOLUME /frps.ini
+VOLUME /frpc.ini
 
-WORKDIR /frp
-ENTRYPOINT /frp/frps -c /frp/conf/frps.ini
+WORKDIR /
+ENTRYPOINT /frps -c /frps.ini
